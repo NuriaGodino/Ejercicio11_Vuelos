@@ -28,7 +28,7 @@ public class VuelosServiceImpl implements VuelosService{
 	public boolean actualizaVuelo(int idVuelo, int plazas) {
 		Vuelo vuelo = buscarVueloID(idVuelo);
 		if(vuelo != null) {
-			vuelo.setPlazas(plazas);
+			vuelo.setPlazas(vuelo.getPlazas() - plazas);
 			vuelosDao.save(vuelo);
 			return true;
 		}
